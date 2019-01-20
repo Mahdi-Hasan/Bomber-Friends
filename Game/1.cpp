@@ -16,7 +16,6 @@ int bombNum = 0;
 int bombAra[5];
 
  int swap_devil_y=3;
- int dir_x=0,dir_y=0.05;
 
 class classBomb
 {
@@ -44,11 +43,15 @@ public:
 
 int main()
 {
+
     srand(time(NULL));
     RenderWindow window;
     window.create(VideoMode(925,600),"Bomber Friends");
     enum Direction{Down,Left,Right,Up};
     sf::Vector2i player(1,Down);
+        Vector2i devil_dir(1,Down);
+    float devil_dir_x=0,devil_dir_y=0.5f;
+
     ///TEXT
     Text goalTxt,gameovertxt;
     Font goalfont,gameoverfont;
@@ -239,7 +242,7 @@ int main()
 
     ///bool colli
     bool player_colli[4]={false};
-    bool devil_colli=false;
+    bool devil_colli[4]={false};
     bool hulk_colli=false;
     bool redskull_colli=false;
 
@@ -433,9 +436,12 @@ int main()
                 hulk.setTextureRect(IntRect(hulk_x*40, hulk_y*54, 40, 58));
                 redskull.setTextureRect(IntRect(redskull_x*32,redskull_y*48, 32, 48));
 
+                ///enemy  get pos
+                int devil_pos=devil.getPosition().y;
+
                 player_sole.setPosition(player_pos_x+8,player_pos_y+48);
                 devil_sole.setPosition(devil_pos_x,devil_pos_y+48);
-
+                    //cout<<devil_pos;
                 ///ENEMY Move in spritesheet
 
                 if(death_scythe_counter == 60)
@@ -477,8 +483,8 @@ int main()
                 for(int a=0;a<=3;a++)
                     player_colli[a]=false;
 
-                    devil_colli=false;
-
+                for(int a=0;a<=3;a++)
+                    devil_colli[a]=false;
                 ///fix block
                 for(int column=1;column<=4;column++)
                 {
@@ -495,7 +501,7 @@ int main()
                            }
                         if(devil_sole.getGlobalBounds().intersects(blocki.getGlobalBounds()))
                            {
-                                devil_colli =true;
+                                devil_colli[devil_y]=true;
                            }
                     }
                 }
@@ -517,7 +523,7 @@ int main()
                     }
                     if(devil_sole.getGlobalBounds().intersects(blocki.getGlobalBounds()))
                     {
-                        devil_colli =true;
+                        devil_colli[devil_y]=true;
                     }
                 }
                ///lower boundery
@@ -536,7 +542,7 @@ int main()
                         }
                         if(devil_sole.getGlobalBounds().intersects(blocki.getGlobalBounds()))
                         {
-                            devil_colli =true;
+                            devil_colli[devil_y]=true;
                         }
                     }
 
@@ -556,7 +562,7 @@ int main()
                         }
                         if(devil_sole.getGlobalBounds().intersects(blocki.getGlobalBounds()))
                         {
-                            devil_colli =true;
+                            devil_colli[devil_y]=true;
                         }
                     }
                     ///last left
@@ -570,7 +576,7 @@ int main()
                         }
                         if(devil_sole.getGlobalBounds().intersects(blocki.getGlobalBounds()))
                         {
-                            devil_colli =true;
+                            devil_colli[devil_y]=true;
                         }
 
                 ///right boundery
@@ -589,7 +595,7 @@ int main()
                         }
                         if(devil_sole.getGlobalBounds().intersects(blocki.getGlobalBounds()))
                         {
-                            devil_colli =true;
+                            devil_colli[devil_y]=true;
                         }
                     }
                     ///last left
@@ -602,7 +608,7 @@ int main()
                             }
                         if(devil_sole.getGlobalBounds().intersects(blocki.getGlobalBounds()))
                         {
-                            devil_colli =true;
+                            devil_colli[devil_y]=true;
                         }
                 ///foota block
                 int j=4;
@@ -622,7 +628,7 @@ int main()
                         }
                         if(devil_sole.getGlobalBounds().intersects(block_foot.getGlobalBounds()))
                         {
-                            devil_colli =true;
+                            devil_colli[devil_y]=true;
                         }
                     }
                     else
@@ -636,24 +642,36 @@ int main()
                         }
                         if(devil_sole.getGlobalBounds().intersects(block_foot1.getGlobalBounds()))
                         {
-                            devil_colli=true;
+                            devil_colli[devil_y]=true;
                         }
 
                     }
                     j++;
                 }
-
-                if(devil_colli)
+                for(int a=0;a<=3;a++)
+                    cout<<devil_colli[a];
+                    cout<<endl;
+                if(devil_colli[0])
                 {
                     cout<<endl<<"devil_collided"<<endl;
-                    int temp=devil_y;
-                        devil_y=swap_devil_y;
-                        swap_devil_y=temp;
-                        //dir_y=0-dir_y;
+                        devil_y=3;
+                       // devil_dir.y=Up;
+                       // devil_sole.move(devil_dir_x,(-20)*devil_dir_y);
+                        devil_dir_y=-0.1;
                 }
-                devil.move(0,-1);
-                //devil_pos_y=devil_pos_y-0.0000000005;
-                cout<<" X ="<<devil_pos_x<<"   "<<"Y ="<<devil_pos_y<<endl;
+                else if(devil_colli[3])
+                {
+                        devil_y=0;
+                        //devil_dir.y=Down;
+                       //devil_sole.move(devil_dir_x,(20)*devil_dir_y);
+                        devil_dir_y=0.1;
+                }
+
+
+                //cout<<devil_dir_x<<" & "<<devil_dir_y;
+                devil.move(devil_dir_x,devil_dir_y);
+                devil_pos_y=devil_pos;
+               // cout<<" X ="<<devil_pos_x<<"   "<<"Y ="<<devil_pos_y<<endl;
                 window.draw(devil_sole);
 
                 window.draw(player_sole);
@@ -717,7 +735,7 @@ int main()
                             //spriteBomb.clear();
                             vecBomb.erase(vecBomb.begin()+i);
                             window.draw(spriteExplosion);
-                            /*if(explosionTime[i].asSeconds() >= 4.5)
+                            if(explosionTime[i].asSeconds() >= 4.5)
                                 explosionClock.restart();}*/
 
                     }

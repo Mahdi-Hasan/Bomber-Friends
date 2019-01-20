@@ -2,24 +2,9 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="1.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="23809" topLine="642" />
-		</Cursor>
-	</File>
-	<File name="bomb.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="536" topLine="1" />
-		</Cursor>
-	</File>
 	<File name="menu.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="504" topLine="2" />
-		</Cursor>
-	</File>
-	<File name="game.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="168" topLine="46" />
 		</Cursor>
 	</File>
 	<File name="game.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -27,14 +12,19 @@
 			<Cursor1 position="500" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Collision.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="5752" topLine="63" />
-		</Cursor>
-	</File>
 	<File name="Collision.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1690" topLine="20" />
+			<Cursor1 position="1690" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="collision.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="432" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="bomb.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="536" topLine="1" />
 		</Cursor>
 	</File>
 	<File name="menu.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -42,9 +32,38 @@
 			<Cursor1 position="1108" topLine="27" />
 		</Cursor>
 	</File>
-	<File name="collision.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="1.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="432" topLine="0" />
+			<Cursor1 position="23564" topLine="391" />
+		</Cursor>
+		<Folding>
+			<Collapse line="335" />
+			<Collapse line="345" />
+			<Collapse line="447" />
+			<Collapse line="454" />
+			<Collapse line="461" />
+			<Collapse line="468" />
+			<Collapse line="524" />
+			<Collapse line="531" />
+			<Collapse line="551" />
+			<Collapse line="563" />
+			<Collapse line="573" />
+			<Collapse line="577" />
+			<Collapse line="584" />
+			<Collapse line="592" />
+			<Collapse line="596" />
+			<Collapse line="605" />
+			<Collapse line="615" />
+		</Folding>
+	</File>
+	<File name="Collision.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5752" topLine="63" />
+		</Cursor>
+	</File>
+	<File name="game.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="168" topLine="46" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
